@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
-api_key = os.getenv("GROQ_API_KEY")
-base_url = os.getenv("GROQ_BASE_URL")
+api_key = os.getenv("GROQ_API_KEY",st.secrets.get("OPENAI_API_KEY"))
+base_url = os.getenv("GROQ_BASE_URL",st.secrets.get("BASE_URL"))
 
 client = OpenAI(
     api_key=api_key,
